@@ -1,1 +1,0 @@
-The things inside this are used as a library.

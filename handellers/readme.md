@@ -1,1 +1,0 @@
-For example, it is supposed to serve and manage ports for communicating with library services, such as those inside each node.
