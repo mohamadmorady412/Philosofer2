@@ -23,10 +23,10 @@ import jwt
 from fastapi import HTTPException, Request, status
 from jwt.exceptions import DecodeError, ExpiredSignatureError
 
-from ..strategy import jwt_strategy
+from ..strategy.jwt_strategy import AuthStrategy
 
 
-class JWTAuth(jwt_strategy):
+class JWTAuth(AuthStrategy):
     """
     An authentication strategy for verifying requests based on JSON Web Tokens (JWT).
 
