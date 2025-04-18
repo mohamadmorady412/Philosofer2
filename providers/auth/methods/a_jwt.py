@@ -54,7 +54,7 @@ class JWTAuth(AuthStrategy):
             request (Request): The FastAPI request object.
 
         Returns:
-            bool: True if the token is valid, False otherwise (raises HTTPException on invalid tokens).
+            bool: True if the token is valid, False otherwise.
 
         Raises:
             HTTPException (401): If the token has expired, is invalid, or the
@@ -146,5 +146,4 @@ Example of creating a token (for testing purposes):
 >>> print("Try accessing /protected with the above token in the Authorization header.")
 
 >>> print("For example, using curl: curl -H 'Authorization: Bearer <your_token>' http://127.0.0.1:8000/protected")
-
 """
