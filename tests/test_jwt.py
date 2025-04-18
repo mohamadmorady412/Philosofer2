@@ -1,5 +1,7 @@
 # TODO: In utils, a tool should be built to prevent RY from building clients and their behavior.
 
+import os
+import sys
 from typing import Optional
 
 import jwt
@@ -8,7 +10,11 @@ from fastapi import Depends, FastAPI, HTTPException, Request, status
 from fastapi.routing import APIRoute
 from fastapi.testclient import TestClient
 
-from ..strategy.jwt_strategy import AuthStrategy
+root_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if root_dir not in sys.path:
+    sys.path.append(root_dir)
+
+from providers.auth.strategy.jwt_strategy import AuthStrategy
 
 
 # Define a mock AuthStrategy for testing purposes if the original is complex
@@ -87,6 +93,9 @@ def client(app):
     return TestClient(app)
 
 
+# ====================================== Tests ====================================== #
+
+
 def test_public_endpoint(client):
     response = client.get("/public")
     assert response.status_code == 200
@@ -151,3 +160,6 @@ def test_protected_endpoint_expired_token_explicit_check(client):
     )
     assert response.status_code == 401
     assert response.json()["detail"] == "Invalid token"
+
+
+# ====================================== Tests ====================================== #
