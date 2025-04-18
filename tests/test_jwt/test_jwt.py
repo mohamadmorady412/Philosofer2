@@ -1,3 +1,5 @@
+# python -m pytest tests\test_jwt\test_jwt.py
+
 import time
 
 import jwt
