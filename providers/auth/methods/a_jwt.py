@@ -23,7 +23,7 @@ import jwt
 from fastapi import HTTPException, Request, status
 from jwt.exceptions import DecodeError, ExpiredSignatureError
 
-from ..strategy.jwt_strategy import AuthStrategy
+from ..strategy.auth_strategy import AuthStrategy
 
 
 class JWTAuth(AuthStrategy):
