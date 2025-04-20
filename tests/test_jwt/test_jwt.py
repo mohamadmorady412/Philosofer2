@@ -8,7 +8,7 @@ from fastapi import Depends, FastAPI, Request
 from httpx import AsyncClient
 from httpx._transports.asgi import ASGITransport
 
-from providers.auth.methods.a_jwt import JWTAuth
+from providers.auth.methods.auth_jwt import JWTAuth
 
 SECRET_KEY = "test-secret-key"
 jwt_auth = JWTAuth(secret_key=SECRET_KEY)
