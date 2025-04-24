@@ -2,8 +2,8 @@ import pytest
 from fastapi import FastAPI, Request
 from httpx import ASGITransport, AsyncClient
 
-from providers.data_teransfer.methods.forms import build_form_class, create_field
-from providers.data_teransfer.strategy.fs import FormDataStrategy
+from providers.form.methods.forms import build_form_class, create_field
+from providers.form.strategy.fs import FormDataStrategy
 
 
 @pytest.fixture
